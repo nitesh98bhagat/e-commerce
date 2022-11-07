@@ -110,7 +110,7 @@ export default function Footer() {
             </h6>
 
             {["Home", "About", "Blog", "Contact"].map((e) => (
-              <p className="mb-4">
+              <p className="mb-4" key={e}>
                 <a href="#!" className="text-gray-600">
                   {e ?? "Footer Link"}
                 </a>
@@ -124,7 +124,7 @@ export default function Footer() {
             </h6>
 
             {["Payment Issues", "Order Issues", "Report a product"].map((e) => (
-              <p className="mb-4">
+              <p className="mb-4" key={e}>
                 <a href="#!" className="text-gray-600">
                   {e ?? "Footer Link"}
                 </a>
@@ -143,7 +143,7 @@ export default function Footer() {
               "Return Policy",
               "Cancelation Policy",
             ].map((e) => (
-              <p className="mb-4">
+              <p className="mb-4" key={e}>
                 <a href="#!" className="text-gray-600">
                   {e ?? "Footer Link"}
                 </a>

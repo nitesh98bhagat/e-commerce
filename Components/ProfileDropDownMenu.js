@@ -61,7 +61,7 @@ setImgUrl(session.user.image)
             <div className="px-1 py-1">
               {["My Account", "Your Orders", "Order History", "Settings"].map(
                 (e) => (
-                  <Menu.Item>
+                  <Menu.Item key={e}>
                     {({ active }) => (
                       <button
                         onClick={() => router.push("/my-account")}

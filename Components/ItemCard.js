@@ -39,7 +39,7 @@ export default function ItemCard({ props }) {
         </h1>
         <h1 className="text-sm font-semibold flex flex-row text-blue-500">
           {[...Array(Math.floor(rating))].map((e, i) => (
-            <svg
+            <svg key={e}
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
