@@ -21,7 +21,7 @@ export default function SearchPage() {
         {/* rating filter */}
         <h1 className="text-xl font-semibold">Ratings</h1>
         {[5, 4, 3, 2, 1].map((index) => (
-          <div className="flex flex-row text-sm space-x-2">
+          <div className="flex flex-row text-sm space-x-2" key={index}>
             <input
               key={index}
               type="checkbox"

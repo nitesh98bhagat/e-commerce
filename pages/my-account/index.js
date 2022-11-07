@@ -5,10 +5,6 @@ import { useState } from "react";
 export default function MyAccount() {
   const { data: session } = useSession();
 
-
-
-    
-
   return (
     <div className="border mx-14 ">
       {/* Account Details */}
@@ -44,17 +40,29 @@ export default function MyAccount() {
       </div>
 
       <div className="grid grid-cols-4">
-      {/* menu list */}
-      <div className="flex flex-col col-span-1 border-r">
-        {["My Account", "Login & Security", "Manage Addresses","Manage Cards","Settings", "Get Help", "Change Theme" ].map((e)=><p className="text-lg cursor-pointer hover:bg-slate-50 py-3 px-10">{e}</p>)}
+        {/* menu list */}
+        <div className="flex flex-col col-span-1 border-r">
+          {[
+            "My Account",
+            "Login & Security",
+            "Manage Addresses",
+            "Manage Cards",
+            "Settings",
+            "Get Help",
+            "Change Theme",
+          ].map((e) => (
+            <p
+              key={e}
+              className="text-lg cursor-pointer hover:bg-slate-50 py-3 px-10"
+            >
+              {e}
+            </p>
+          ))}
+        </div>
+
+        {/* left pane */}
+        <div className="col-span-3 "></div>
       </div>
-
-      {/* left pane */}
-      <div className="col-span-3 "></div>
-
-      </div>
-
-
     </div>
   );
 }

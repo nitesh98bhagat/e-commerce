@@ -54,7 +54,7 @@ export default function Login() {
             </button>
 
             <div className="flex flex-row  m-4 text-lg font-base">
-              <p>Don't have an account, just</p>
+              <p>Don`t have an account, just</p>
               <Link href={"/auth/signup"}>
                 <p className=" font-semibold text-pink-500  cursor-pointer mx-1">
                   {"Sign up "}

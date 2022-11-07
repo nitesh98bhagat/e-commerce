@@ -1,7 +1,7 @@
 // slider
 import { Navigation, Pagination, Autoplay, A11y } from "swiper";
 
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
@@ -21,7 +21,6 @@ const banner = [
 ];
 
 export default function Home({ data }) {
-  const swiper = useSwiper();
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList.value);
