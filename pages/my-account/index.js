@@ -1,16 +1,26 @@
 import { useSession } from "next-auth/react";
-import { useEffect } from "react";
-import { useState } from "react";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 export default function MyAccount() {
   const { data: session } = useSession();
+
+  if (!session) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <div className="border mx-14 ">
       {/* Account Details */}
       <div className="flex items-center p-5 border-b ">
-        <img
-          src={session.user.image}
+        <Image
+          width={50}
+          height={50}
+          src={
+            session.user.image ??
+            "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-image-182145777.jpg"
+          }
           alt="user_image"
           className="w-14 h-14 rounded-full"
         />

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -23,14 +24,19 @@ export default function ItemCard({ props }) {
       onClick={() => router.push(`/product-details/${id}`)}
       className="flex flex-col border hover:scale-105 bg-white hover:bg-slate-50 cursor-pointer  justify-center items-start    border-slate-100 "
     >
-      <img
-        src={
-          thumbnail ??
-          "https://www.intlmag.org/global_graphics/default-store-350x350.jpg"
-        }
-        alt="product image"
-        className="w-full object-cover h-60 "
-      />
+      <div className="h-64 w-full relative">
+        <Image
+          src={
+            images[0] ??
+            "https://www.intlmag.org/global_graphics/default-store-350x350.jpg"
+          }
+          alt="product image"
+          layout="fill" // required
+          objectFit="cover"
+          // className=" h-60 "
+        />
+      </div>
+
       <div className="p-3">
         <h1 className="text-xl font-base ">{title ?? "Item name"}</h1>
         <h1 className="text-sm line-clamp-2 py-1 font-base ">
@@ -39,7 +45,8 @@ export default function ItemCard({ props }) {
         </h1>
         <h1 className="text-sm font-semibold flex flex-row text-blue-500">
           {[...Array(Math.floor(rating))].map((e, i) => (
-            <svg key={e}
+            <svg
+              key={e}
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
@@ -98,14 +105,19 @@ export function SearchItemCard({ props }) {
       onClick={() => router.push(`/product-details/${id}`)}
       className="grid-cols-5 grid items-center lg:px-10 border-b justify-center cursor-pointer hover:bg-slate-50 p-3"
     >
-      <img
-        src={
-          thumbnail ??
-          "https://www.intlmag.org/global_graphics/default-store-350x350.jpg"
-        }
-        alt="product_image"
-        className=" object-contain"
-      />
+      <div className="h-40 w-full relative">
+        <Image
+          src={
+            thumbnail ??
+            "https://www.intlmag.org/global_graphics/default-store-350x350.jpg"
+          }
+          alt="product image"
+          layout="fill" // required
+          objectFit="cover"
+          // className=" h-60 "
+        />
+      </div>
+
       <div className="col-span-2 md:col-span-3 mx-5   ">
         <p className="text-2xl line-clamp-1">
           {title ?? "Lorem ipsum dolor sit amet consectetur adipisicing elit."}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { removeFromCart } from "../app/cartSlice";
@@ -10,14 +11,19 @@ export default function CartItem({ props }) {
   const [quantity, setQuantity] = useState(1);
   return (
     <div className="grid-cols-5 grid items-center lg:px-10 border-b justify-center">
-      <img
-        src={
-          thumbnail ??
-          "https://www.intlmag.org/global_graphics/default-store-350x350.jpg"
-        }
-        alt="product_image"
-        className=" object-contain h-40"
-      />
+      <div className="h-64 w-full relative">
+        <Image
+          src={
+            thumbnail ??
+            "https://www.intlmag.org/global_graphics/default-store-350x350.jpg"
+          }
+          alt="product_image"
+          layout="fill" // required
+          objectFit="cover"
+          // className=" object-contain h-40"
+        />
+      </div>
+
       <div className="col-span-2 md:col-span-3 mx-5  space-y-2 ">
         <p className="text-xl line-clamp-1">{title ?? "Title"}</p>
         <p className="text-sm line-clamp-2">

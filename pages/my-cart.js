@@ -1,4 +1,5 @@
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 import { useSelector } from "react-redux";
 import { cartTotal } from "../app/cartSlice";
 import CartItem from "../Components/CartItem";
@@ -16,7 +17,9 @@ export default function MyCart() {
         <h1 className="text-2xl font-semibold p-5 bg-slate-50 ">My Cart</h1>
 
         {cartItems.length == 0 && (
-          <img
+          <Image
+            width={500}
+            height={500}
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwT4o-X8qXXCd_ddwWI5q2cFU9eXVN1JPtFRQlBr3BHKOzwBR8Ydjf7KHtrhdZknv4q5U&usqp=CAU"
             className="mx-auto w-1/3 my-40"
             alt="="

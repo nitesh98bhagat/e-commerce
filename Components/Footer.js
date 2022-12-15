@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="text-center lg:text-left border-t text-gray-600">
@@ -74,7 +76,7 @@ export default function Footer() {
             md:justify-start
           "
             >
-              <img src="logo.png" alt="logo" />
+              <Image src="/logo.png" alt="logo" width={150} height={40} />
             </h6>
             <svg
               xmlns="http://www.w3.org/2000/svg"

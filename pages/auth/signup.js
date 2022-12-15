@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -52,7 +53,8 @@ export default function Signup() {
             <h1 className="p-3 text-center w-full">Or</h1>
 
             <button className=" w-full font-bold rounded-xl  text-gray-800 text-xl p-2 border flex flex-row justify-center ">
-              <img
+              <Image
+              layout='fill'
                 src="https://pbs.twimg.com/profile_images/1455185376876826625/s1AjSxph_400x400.jpg"
                 alt="google"
                 className="w-8  p-1"

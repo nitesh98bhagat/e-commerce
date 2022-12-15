@@ -2,28 +2,28 @@ import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 export default function ProfileDropDownMenu() {
   const { data: session } = useSession();
   const router = useRouter();
 
+  const [imgUrl, setImgUrl] = useState(
+    "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-image-182145777.jpg"
+  );
 
-  const [imgUrl, setImgUrl] = useState("https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-image-182145777.jpg")
-
-useEffect(() => {
-  
-setImgUrl(session.user.image)
- 
-}, [])
-
-
+  useEffect(() => {
+    setImgUrl(session.user.image);
+  }, [session.user.image]);
 
   return (
     <div className="">
       <Menu as="div" className="relative inline-block text-left">
         <div>
-          <Menu.Button className="inline-flex w-full justify-center rounded-md  space-x-2 p-2 text-sm font-medium text-black hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-            <img
+          <Menu.Button className="inline-flex w-full justify-center items-center rounded-md  space-x-2 p-2 text-sm font-medium text-black hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+            <Image
+            width={30}
+            height={30}
               src={imgUrl}
               alt="user_image"
               className="w-6 h-6 rounded-full"

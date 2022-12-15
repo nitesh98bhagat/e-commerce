@@ -9,9 +9,10 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import ItemCard from "../Components/ItemCard";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProduct } from "../app/productSlice";
+import Image from "next/image";
 
 const banner = [
   "https://m.media-amazon.com/images/I/6124QhAPExL._SX1500_.jpg",
@@ -27,7 +28,7 @@ export default function Home({ data }) {
 
   useEffect(() => {
     dispatch(fetchProduct(data.products));
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="flex flex-col">
@@ -64,16 +65,17 @@ export default function Home({ data }) {
         >
           {banner.map((e, i) => (
             <SwiperSlide key={i}>
-              <img
+              <Image
+                width={1296}
+                height={300}
                 src={e}
                 alt="sss"
-                key={e.indexOf}
-                className="h-72 w-full object-cover object-left-top"
+                className=" object-cover object-left-top"
               />
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="p-1 cursor-pointer" >
+        <div className="p-1 cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -90,8 +92,6 @@ export default function Home({ data }) {
           </svg>
         </div>
       </div>
-
-    
 
       {/* grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 m-10">
@@ -111,8 +111,6 @@ export async function getServerSideProps() {
   const res = await fetch("https://dummyjson.com/products");
 
   const data = await res.json();
-
-  // console.log(data);
 
   return {
     props: { data },
