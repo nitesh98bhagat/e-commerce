@@ -70,9 +70,9 @@ export default function ProductDetails({ data }) {
             />
           </div>
         </div>
-              {/* Vissible in small devices */}
-        <div className="md:hidden flex">
-          <div className="sticky top-28 space-y-3 flex flex-row p-5 ">
+        {/* Vissible in small devices */}
+        <div className="md:hidden flex ">
+          <div className="sticky top-28 space-y-3 flex flex-row  w-full justify-evenly p-5 ">
             {data.images.map((e, i) => (
               <Image
                 width={50}
@@ -92,9 +92,25 @@ export default function ProductDetails({ data }) {
             ))}
           </div>
         </div>
+        {/* add to cart button -only vissible for small devices  */}
+        <div className="flex flex-col md:hidden p-5  ">
+          <div className="sticky top-28 w-full flex flex-col space-y-2">
+            <button
+              // onClick={handelAddToCart}
+              className={`bg-pink-500 p-2 font-normal rounded-md text-white`}
+              onClick={() => dispatch(addToCart(data))}
+            >
+              {/* {isProductInTheCart ? "Add to Cart" : "Remove"} */}
+              Add to cart
+            </button>
+            <button className="bg-slate-800 p-2 rounded-md text-white">
+              Add to Wishlist
+            </button>
+          </div>
+        </div>
 
         {/* product details */}
-        <div className="flex-1 px-12 space-y-3 py-5">
+        <div className="flex-1 px-5 md:px-12 space-y-3 py-5">
           {/* <div className="flex flex-row justify-start space-x-10 bg-white border-b-2 border-slate-100  sticky top-24 ">
             <NavPill title={"Overview"} index={0} />
             <NavPill title={"Information"} index={2} />
@@ -193,7 +209,7 @@ export default function ProductDetails({ data }) {
         </div>
 
         {/* Add to cart section */}
-        <div className="flex flex-col  p-5  w-1/6">
+        <div className=" hidden md:flex flex-col  p-5  w-1/6">
           <div className="sticky top-28 w-full flex flex-col space-y-2">
             <button
               // onClick={handelAddToCart}
