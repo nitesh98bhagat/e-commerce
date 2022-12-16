@@ -200,7 +200,7 @@ export default function Header() {
       </div>
       {/* Category */}
 
-      <div className="text-black w-full flex bg-white px-10  space-x-5">
+      <div className="text-black w-full lg:flex hidden bg-white px-10  space-x-5">
         {[
           "Home Applience",
           "Electronics",
