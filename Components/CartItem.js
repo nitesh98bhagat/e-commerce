@@ -10,8 +10,8 @@ export default function CartItem({ props }) {
 
   const [quantity, setQuantity] = useState(1);
   return (
-    <div className="grid-cols-5 grid items-center lg:px-10 border-b justify-center">
-      <div className="h-64 w-full relative">
+    <div className="grid-cols-5 grid items-start p-3 lg:px-10 border-b justify-center">
+      <div className="h-24 w-full relative">
         <Image
           src={
             thumbnail ??
@@ -24,7 +24,7 @@ export default function CartItem({ props }) {
         />
       </div>
 
-      <div className="col-span-2 md:col-span-3 mx-5  space-y-2 ">
+      <div className="col-span-3  mx-5  space-y-2 ">
         <p className="text-xl line-clamp-1">{title ?? "Title"}</p>
         <p className="text-sm line-clamp-2">
           {description ??
@@ -43,7 +43,7 @@ export default function CartItem({ props }) {
           </span>
         </h1>
       </div>
-      <div className="flex flex-col w-40 space-y-2 ">
+      <div className="flex flex-col my-auto sm:w-40 space-y-2 ">
         {/* <div className="flex  text-white text-3xl bg-pink-500">
           <button
             className=" px-3 font-semibold "

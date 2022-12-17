@@ -11,9 +11,9 @@ export default function MyCart() {
   const { data: session } = useSession();
 
   return (
-    <div className="flex flex-col  lg:flex-row  justify-center min-h-screen  ">
+    <div className="flex flex-col  lg:flex-row  justify-statrt   ">
       {/* checkoutlist */}
-      <div className="w-full lg:w-2/3  lg:overflow-y-auto   border ">
+      <div className="w-full lg:w-2/3   border ">
         <h1 className="text-2xl font-semibold p-5 bg-slate-50 ">My Cart</h1>
 
         {cartItems.length == 0 && (
@@ -31,7 +31,7 @@ export default function MyCart() {
         ))}
       </div>
       <div className=" w-full lg:w-1/4  text-2xl  ">
-        <div className="flex flex-col px-5 text-slate-800 py-3 space-y-3 fixed bottom-0 lg:sticky lg:top-24  shadow-sm bg-white w-full border-t">
+        <div className="flex flex-col px-5 text-slate-800 py-3 space-y-3 fixed bottom-0 lg:sticky lg:top-24 z-20 sm:z-0  shadow-sm bg-white w-full border-t">
           <h1 className="text-2xl font-semibold text-black  ">Total</h1>
           <p className="text-lg flex justify-between">
             <p>Cart total</p> <span>${cartTotal2}</span>
