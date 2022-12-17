@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { signIn, signOut, useSession } from "next-auth/react";
 import ProfileDropDownMenu from "./ProfileDropDownMenu";
 import Image from "next/image";
+import { BsSearch } from "react-icons/bs";
 
 export default function Header() {
   const { data: session } = useSession();
@@ -147,12 +148,15 @@ export default function Header() {
             </div>
           </Link>
 
+          {/* search Icon */}
+          <BsSearch size={20} />
+
           {/* Login */}
           {/* <Link href={"/auth/login"}> */}
           {!session && (
             <div
               onClick={session ? signOut : signIn}
-              className="flex hover:text-pink-500 cursor-pointer"
+              className="sm:flex hidden hover:text-pink-500 cursor-pointer"
             >
               {session ? (
                 <svg

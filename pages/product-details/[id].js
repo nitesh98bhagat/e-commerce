@@ -23,7 +23,7 @@ export default function ProductDetails({ data }) {
     );
   }
 
-  console.log(data);
+
 
   if (data.message) {
     return <h1>{data.message}</h1>;
@@ -74,21 +74,23 @@ export default function ProductDetails({ data }) {
         <div className="md:hidden flex ">
           <div className="sticky top-28 space-y-3 flex flex-row  w-full justify-evenly p-5 ">
             {data.images.map((e, i) => (
-              <Image
-                width={50}
-                height={50}
-                objectFit={"contain"}
-                key={i}
-                src={
-                  e ??
-                  "https://www.intlmag.org/global_graphics/default-store-350x350.jpg"
-                }
-                alt="image"
-                onClick={() => setselectedImageIndex(i)}
+              <div
                 className={` mx-3 border-2 cursor-pointer   ${
                   selectedImageIndex == i && "border-pink-500"
                 }`}
-              />
+              >
+                <Image
+                  width={50}
+                  height={50}
+                  key={i}
+                  src={
+                    e ??
+                    "https://www.intlmag.org/global_graphics/default-store-350x350.jpg"
+                  }
+                  alt="image"
+                  onClick={() => setselectedImageIndex(i)}
+                />{" "}
+              </div>
             ))}
           </div>
         </div>
@@ -233,6 +235,7 @@ export async function getServerSideProps(context) {
   const res = await fetch(`https://dummyjson.com/products/${context.query.id}`);
 
   const data = await res.json();
+
 
 
   return {

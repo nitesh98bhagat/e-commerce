@@ -159,11 +159,11 @@ export default function Home({ data }) {
           {banner.map((e, i) => (
             <SwiperSlide key={i}>
               <Image
-                width={1296}
-                height={300}
+                // layout="fill"
+                width={1390}
+                height={350}
                 src={e}
                 alt="sss"
-                className=" object-cover object-left-top"
               />
             </SwiperSlide>
           ))}
